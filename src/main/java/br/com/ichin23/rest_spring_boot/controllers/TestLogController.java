@@ -19,6 +19,7 @@ public class TestLogController {
         logger.warn("This is a WARN log");
         logger.debug("This is a DEBUG log");
         logger.error("This is a ERROR log");
+
         return "Logs generated Successfully!";
     }
 }
