@@ -1,12 +1,10 @@
 package br.com.ichin23.rest_spring_boot.services;
 
-import br.com.ichin23.rest_spring_boot.data.dto.v1.PersonDTO;
-import br.com.ichin23.rest_spring_boot.data.dto.v2.PersonDTOV2;
+import br.com.ichin23.rest_spring_boot.data.dto.PersonDTO;
 import br.com.ichin23.rest_spring_boot.exception.ResourceNotFoundException;
 import static br.com.ichin23.rest_spring_boot.mapper.ObjectMapper.parseListObjects;
 import static br.com.ichin23.rest_spring_boot.mapper.ObjectMapper.parseObject;
 
-import br.com.ichin23.rest_spring_boot.mapper.custom.PersonMapper;
 import br.com.ichin23.rest_spring_boot.model.Person;
 import br.com.ichin23.rest_spring_boot.repository.PersonRepository;
 import org.slf4j.Logger;
@@ -15,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class PersonServices {
@@ -23,9 +20,6 @@ public class PersonServices {
 
     @Autowired
     PersonRepository repository;
-
-    @Autowired
-    PersonMapper converter;
 
     public List<PersonDTO> findAll(){
 
@@ -44,12 +38,6 @@ public class PersonServices {
         logger.info("Creating one person!");
         var entity = parseObject(person, Person.class);
         return parseObject(repository.save(entity), PersonDTO.class);
-    }
-
-    public PersonDTOV2 createV2(PersonDTOV2 person){
-        logger.info("Creating one person!");
-        var entity = parseObject(person, Person.class);
-        return converter.convertEntityToDTO(repository.save(entity));
     }
 
     public PersonDTO update(PersonDTO person){
