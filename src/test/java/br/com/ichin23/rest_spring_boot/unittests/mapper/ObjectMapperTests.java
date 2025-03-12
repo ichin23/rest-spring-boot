@@ -1,16 +1,16 @@
 package br.com.ichin23.rest_spring_boot.unittests.mapper;
-import static br.com.erudio.mapper.ObjectMapper.parseListObjects;
-import static br.com.erudio.mapper.ObjectMapper.parseObject;
+import static br.com.ichin23.rest_spring_boot.mapper.ObjectMapper.parseListObjects;
+import static br.com.ichin23.rest_spring_boot.mapper.ObjectMapper.parseObject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
-import br.com.erudio.data.dto.PersonDTO;
-import br.com.erudio.unitetests.mapper.mocks.MockPerson;
+import br.com.ichin23.rest_spring_boot.data.dto.v1.PersonDTO;
+import br.com.ichin23.rest_spring_boot.unittests.mapper.mocks.MockPerson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import br.com.erudio.model.Person;
+import br.com.ichin23.rest_spring_boot.model.Person;
 
 public class ObjectMapperTests {
     MockPerson inputObject;

@@ -2,6 +2,7 @@ package br.com.ichin23.rest_spring_boot.data.dto.v2;
 
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 public class PersonDTOV2 implements Serializable {
@@ -12,6 +13,7 @@ public class PersonDTOV2 implements Serializable {
     private long id;
     private String firstName;
     private String lastName;
+    private Date birthday;
     private String address;
     private String gender;
 
@@ -57,15 +59,23 @@ public class PersonDTOV2 implements Serializable {
         this.gender = gender;
     }
 
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        PersonDTOV2 person = (PersonDTOV2) o;
-        return id == person.id && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(address, person.address) && Objects.equals(gender, person.gender);
+        PersonDTOV2 that = (PersonDTOV2) o;
+        return id == that.id && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(birthday, that.birthday) && Objects.equals(address, that.address) && Objects.equals(gender, that.gender);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, address, gender);
+        return Objects.hash(id, firstName, lastName, birthday, address, gender);
     }
 }

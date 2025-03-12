@@ -1,9 +1,9 @@
-package br.com.ichin23.rest_spring_boot.unittests.mapper;
+package br.com.ichin23.rest_spring_boot.unittests.mapper.mocks;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.ichin23.rest_spring_boot.data.dto.PersonDTO;
+import br.com.ichin23.rest_spring_boot.data.dto.v1.PersonDTO;
 import br.com.ichin23.rest_spring_boot.model.Person;
 
 public class MockPerson {

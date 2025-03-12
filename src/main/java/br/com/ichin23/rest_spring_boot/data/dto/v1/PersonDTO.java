@@ -1,4 +1,4 @@
-package br.com.ichin23.rest_spring_boot.data.dto;
+package br.com.ichin23.rest_spring_boot.data.dto.v1;
 
 
 import java.io.Serializable;
