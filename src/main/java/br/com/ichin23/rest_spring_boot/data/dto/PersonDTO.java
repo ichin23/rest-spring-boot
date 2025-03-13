@@ -9,8 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-//@JsonPropertyOrder({"id", "address", "first_name", "last_name", "gender"})
-@JsonFilter("PersonFilter")
+
 public class PersonDTO implements Serializable {
 
     private static final long serialVersionUID =1L;
@@ -18,26 +17,17 @@ public class PersonDTO implements Serializable {
 
     private long id;
 
-    //@JsonProperty("first_name")
-    //@JsonProperty("last_name")
+
     private String firstName;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String lastName;
 
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    private String phoneNumber;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date birthday;
 
     private String address;
 
-    //@JsonIgnore
-    @JsonSerialize(using = GenderSerializer.class)
     private String gender;
 
-    private String sensitiveData;
 
     public PersonDTO(){}
 
@@ -65,13 +55,7 @@ public class PersonDTO implements Serializable {
         this.lastName = lastName;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
 
     public String getAddress() {
         return address;
@@ -89,31 +73,16 @@ public class PersonDTO implements Serializable {
         this.gender = gender;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getSensitiveData() {
-        return sensitiveData;
-    }
-
-    public void setSensitiveData(String sensitiveData) {
-        this.sensitiveData = sensitiveData;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         PersonDTO personDTO = (PersonDTO) o;
-        return id == personDTO.id && Objects.equals(firstName, personDTO.firstName) && Objects.equals(lastName, personDTO.lastName) && Objects.equals(phoneNumber, personDTO.phoneNumber) && Objects.equals(birthday, personDTO.birthday) && Objects.equals(address, personDTO.address) && Objects.equals(gender, personDTO.gender) && Objects.equals(sensitiveData, personDTO.sensitiveData);
+        return id == personDTO.id && Objects.equals(firstName, personDTO.firstName) && Objects.equals(lastName, personDTO.lastName) && Objects.equals(address, personDTO.address) && Objects.equals(gender, personDTO.gender);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, phoneNumber, birthday, address, gender, sensitiveData);
+        return Objects.hash(id, firstName, lastName, address, gender);
     }
 }
