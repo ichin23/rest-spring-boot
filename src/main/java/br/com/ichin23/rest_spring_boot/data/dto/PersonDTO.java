@@ -1,7 +1,6 @@
 package br.com.ichin23.rest_spring_boot.data.dto;
 
 
-import br.com.ichin23.rest_spring_boot.serializer.GenderSerializer;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
