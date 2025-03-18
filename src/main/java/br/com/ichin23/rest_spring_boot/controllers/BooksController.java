@@ -1,35 +1,37 @@
 package br.com.ichin23.rest_spring_boot.controllers;
 
-import br.com.ichin23.rest_spring_boot.data.dto.PersonDTO;
-import br.com.ichin23.rest_spring_boot.services.PersonServices;
+import br.com.ichin23.rest_spring_boot.data.dto.BookDTO;
+import br.com.ichin23.rest_spring_boot.model.Book;
+import br.com.ichin23.rest_spring_boot.model.Person;
+import br.com.ichin23.rest_spring_boot.services.BookService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/person/v1")
-@Tag(name = "People", description = "Endpoints for managing people")
-public class PersonController implements br.com.ichin23.rest_spring_boot.controllers.docs.PersonControllerDocs {
+@RequestMapping("/api/books/v1")
+@Tag(name = "Books", description = "Endpoint for managing Books")
+public class BooksController implements br.com.ichin23.rest_spring_boot.controllers.docs.BooksControllerDocs {
 
     @Autowired
-    private PersonServices service;
-    //private PersonServices service = new PersonServices()
+    BookService service;
 
     @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE})
     @Override
-    public List<PersonDTO> findAll(){
+    public List<BookDTO> findAll(){
         return service.findAll();
     }
 
-    @GetMapping(value = "/{id}",
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE})
+    @GetMapping(
+            value = "/{id}",
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE}
+    )
     @Override
-    public PersonDTO findById(@PathVariable("id") Long id){
+    public BookDTO findByID(@PathVariable("id") Long id){
         return service.findById(id);
     }
 
@@ -38,8 +40,8 @@ public class PersonController implements br.com.ichin23.rest_spring_boot.control
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE}
     )
     @Override
-    public PersonDTO create(@RequestBody PersonDTO person){
-        return service.create(person);
+    public BookDTO create(@RequestBody BookDTO book){
+        return service.create(book);
     }
 
     @PutMapping(
@@ -47,15 +49,17 @@ public class PersonController implements br.com.ichin23.rest_spring_boot.control
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE}
     )
     @Override
-    public PersonDTO update(@RequestBody PersonDTO person){
-        return service.update(person);
+    public BookDTO update(@RequestBody BookDTO book){
+        return service.update(book);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(
+            value = "/{id}",
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE}
+    )
     @Override
-    public ResponseEntity<?> delete(@PathVariable("id") Long id){
+    public ResponseEntity<Object> delete(@PathVariable("id") long id){
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
-
 }
