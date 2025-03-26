@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.List;
 
+// @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/person/v1")
 @Tag(name = "People", description = "Endpoints for managing people")
@@ -26,6 +27,7 @@ public class PersonController implements br.com.ichin23.rest_spring_boot.control
         return service.findAll();
     }
 
+    //@CrossOrigin(origins = "http://localhost:8080")
     @GetMapping(value = "/{id}",
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE})
     @Override
@@ -33,6 +35,7 @@ public class PersonController implements br.com.ichin23.rest_spring_boot.control
         return service.findById(id);
     }
 
+    //@CrossOrigin(origins = "http://localhost:8080", "")
     @PostMapping(
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE}

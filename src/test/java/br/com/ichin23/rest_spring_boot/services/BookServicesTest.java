@@ -7,6 +7,7 @@ import br.com.ichin23.rest_spring_boot.model.Book;
 import br.com.ichin23.rest_spring_boot.model.Person;
 import br.com.ichin23.rest_spring_boot.repository.BooksRepository;
 import br.com.ichin23.rest_spring_boot.repository.PersonRepository;
+import br.com.ichin23.rest_spring_boot.services.BookService;
 import br.com.ichin23.rest_spring_boot.unittests.mapper.mocks.MockBook;
 import br.com.ichin23.rest_spring_boot.unittests.mapper.mocks.MockPerson;
 import org.junit.jupiter.api.BeforeEach;

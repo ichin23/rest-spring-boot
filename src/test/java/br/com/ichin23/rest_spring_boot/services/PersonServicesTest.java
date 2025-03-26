@@ -4,6 +4,7 @@ import br.com.ichin23.rest_spring_boot.data.dto.PersonDTO;
 import br.com.ichin23.rest_spring_boot.exception.RequiredObjectIsNullException;
 import br.com.ichin23.rest_spring_boot.model.Person;
 import br.com.ichin23.rest_spring_boot.repository.PersonRepository;
+import br.com.ichin23.rest_spring_boot.services.PersonServices;
 import br.com.ichin23.rest_spring_boot.unittests.mapper.mocks.MockPerson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
